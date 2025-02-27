@@ -3,7 +3,7 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 const HeroBanner = () => {
   return (
     <Box
-      w="100vw"
+      w="1920px"
       h="916px"
       position="relative"
       backgroundImage="url('/pic.png')" // Update this path
