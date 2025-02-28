@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Flex, HStack, Link, Button, Image } from "@chakra-ui/react";
+import { Box, Flex, HStack, Link, Button, Image, VStack } from "@chakra-ui/react";
 import CustomButton from "/src/components/CustomButton";
 
 const Header = () => {
@@ -12,11 +12,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY) {
-        setIsVisible(false); // Hide header when scrolling down
-      } else {
-        setIsVisible(true); // Show header when scrolling up
-      }
+      setIsVisible(currentScrollY < lastScrollY);
       setLastScrollY(currentScrollY);
     };
 
@@ -27,54 +23,58 @@ const Header = () => {
   return (
     <Box
       w="100%"
-      h="106px"
-      px="100px"
+      h="80px"
+      px={{ base: "20px", md: "100px" }}
       py="10px"
       position="fixed"
-      top={isVisible ? "0" : "-120px"} // Hide the header by shifting it up
+      top={isVisible ? "0" : "-100px"}
       left="0"
       zIndex="1000"
-      transition="top 0.3s ease-in-out" // Smooth transition effect
-       // Optional: Semi-transparent background
-       // Optional: Blur effect for a modern look
+      transition="top 0.3s ease-in-out"
     >
       <Flex align="center" justify="space-between" w="100%" h="100%">
         {/* Logo Section */}
         <HStack spacing={2}>
-          <Image src="/logo.png" alt="Webring Logo" width="104px" height="70px" />
+          <Image src="/logo.png" alt="Webring Logo" width={{ base: "80px", md: "104px" }} height={{ base: "50px", md: "70px" }} />
         </HStack>
 
-        {/* Links & Button Container */}
-        <Flex w="864px" h="86px" gap="51px" align="center" justify="center">
-          {/* Navigation Links Box */}
-          <HStack w="638px" h="86px" spacing="30px" display={{ base: "none", md: "flex" }}>
-            {navItems.map((item) => (
-              <Box
-                key={item}
-                px={3}
-                height="106px"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                borderTop={activeLink === item ? "3px solid #FED904" : "none"}
-                onClick={() => setActiveLink(item)}
-                cursor="pointer"
+        {/* Navigation Links */}
+        <HStack
+          spacing="30px"
+          display={{ base: "flex" }}
+          align="center"
+          justifyContent="center"
+          wrap="wrap"
+          ml={700}
+        >
+          {navItems.map((item) => (
+            <Box
+              key={item}
+              px={3}
+              py={6}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderTop={activeLink === item ? "3px solid #FED904" : "none"}
+              onClick={() => setActiveLink(item)}
+              cursor="pointer"
+            >
+              <Link
+                fontSize={{ base: "14px", md: "18px" }}
+                fontWeight="600"
+                color={activeLink === item ? "#FED904" : "white"}
+                _hover={{ color: "#FED904" }}
               >
-                <Link
-                  fontSize="18px"
-                  fontWeight="600"
-                  color={activeLink === item ? "#FED904" : "white"}
-                  _hover={{ color: "#FED904" }}
-                >
-                  {item}
-                </Link>
-              </Box>
-            ))}
-          </HStack>
+                {item}
+              </Link>
+            </Box>
+          ))}
+        </HStack>
 
-          {/* Get a Quote Button */}
+        {/* Get a Quote Button */}
+        <Box>
           <CustomButton text="GET A QUOTE" onClick={() => alert("Quote Requested!")} />
-        </Flex>
+        </Box>
       </Flex>
     </Box>
   );
