@@ -3,14 +3,18 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 const StatsSection = () => {
   return (
     <Box
-      w="100vw"
+      w="100%"
       maxW="1922px"
-      h="273px"
-      px={{ base: "50px", md: "213px" }}
-      py="50px"
+      px={{ base: "20px", md: "50px", lg: "100px" }}
+      py={{ base: "30px", md: "40px", lg: "50px" }}
       mx="auto"
     >
-      <Flex justify="space-between" align="center" wrap="wrap" gap="134px">
+      <Flex
+        justify={{ base: "center", md: "space-between" }}
+        align="center"
+        wrap="wrap"
+        gap={{ base: "40px", md: "80px", lg: "134px" }}
+      >
         {/* Active Users */}
         <StatBox number="5M+" title="Active Users Worldwide">
           Delivering seamless digital experiences through cutting-edge web and mobile apps.
@@ -36,16 +40,15 @@ const StatBox = ({ number, title, children }) => {
     <Flex
       direction="column"
       align="center"
-      w="320px"
-      h="151px"
+      w={{ base: "100%", md: "320px" }}
+      h="auto"
       textAlign="center"
     >
       <Text
         fontFamily="Yantramanav"
         fontWeight="900"
-        fontSize="60px"
-        lineHeight="72px"
-        letterSpacing="0%"
+        fontSize={{ base: "40px", md: "50px", lg: "60px" }}
+        lineHeight={{ base: "50px", md: "60px", lg: "72px" }}
         color="#FED904"
       >
         {number}
@@ -54,9 +57,8 @@ const StatBox = ({ number, title, children }) => {
       <Text
         fontFamily="Yantramanav"
         fontWeight="700"
-        fontSize="24px"
-        lineHeight="28.8px"
-        letterSpacing="0%"
+        fontSize={{ base: "20px", md: "22px", lg: "24px" }}
+        lineHeight={{ base: "24px", md: "26px", lg: "28.8px" }}
         color="#26241C"
       >
         {title}
@@ -65,11 +67,10 @@ const StatBox = ({ number, title, children }) => {
       <Text
         fontFamily="Yantramanav"
         fontWeight="400"
-        fontSize="18px"
-        lineHeight="21.6px"
-        letterSpacing="0%"
+        fontSize={{ base: "16px", md: "18px" }}
+        lineHeight={{ base: "20px", md: "21.6px" }}
         textAlign="center"
-        w="320px"
+        w={{ base: "100%", md: "320px" }}
       >
         {children}
       </Text>

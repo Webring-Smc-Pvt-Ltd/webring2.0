@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Grid } from "@chakra-ui/react";
 
 const steps = [
   { title: "Brainstorming Ideas", icon: "/brainstorm.png" },
@@ -12,27 +12,27 @@ const steps = [
 const OurModelSection = () => {
   return (
     <Flex
-      w={{ base: "100%", xl: "1923px" }}
-      h={{ base: "auto", xl: "700px" }}
+      w="100%"
+      maxW="1920px"
+      h="auto"
       px={{ base: "20px", xl: "100px" }}
       py={{ base: "30px", xl: "50px" }}
-      flexDirection={{ base: "column", xl: "row" }}
+      flexDirection="column"
       alignItems="center"
       justifyContent="center"
-     
     >
       <Box
-        w={{ base: "100%", xl: "1721px" }}
-        h={{ base: "auto", xl: "600px" }}
+        w="100%"
+        maxW="1721px"
         bg="#14140F"
         borderRadius="10px"
         p={{ base: "20px", xl: "50px" }}
         display="flex"
-        flexDirection={{ base: "column", xl: "row" }}
-        alignItems={{ base: "center", xl: "flex-start" }}
+        flexDirection="column"
+        alignItems="center"
       >
         {/* Left Side Text */}
-        <Box w={{ base: "100%", xl: "267px" }} mr={{ xl: "50px" }}>
+        <Box textAlign="center" mb="30px">
           <Text fontSize="16px" fontWeight="700" letterSpacing="40%" color="#FED904">
             OUR MODEL
           </Text>
@@ -45,11 +45,20 @@ const OurModelSection = () => {
         </Box>
 
         {/* Diagram */}
-        <Flex w={{ base: "100%", xl: "1165px" }} flexWrap="wrap" justifyContent="center" gap="20px">
+        <Grid
+          templateColumns={{
+            base: "repeat(1, minmax(0, 1fr))",
+            md: "repeat(2, minmax(0, 1fr))",
+            lg: "repeat(3, minmax(0, 1fr))",
+          }}
+          gap="20px"
+          w="100%"
+        >
           {steps.map((step, index) => (
             <Flex
               key={index}
-              w={{ base: "100%", md: "255px" }}
+              w="100%"
+              maxW="255px"
               h="100px"
               bg="white"
               borderRadius="10px"
@@ -58,6 +67,7 @@ const OurModelSection = () => {
               p="20px"
               boxShadow="md"
               position="relative"
+              mx="auto"
             >
               {/* Icon */}
               <Flex
@@ -75,9 +85,10 @@ const OurModelSection = () => {
               <Text fontSize="18px" fontWeight="500" color="#26241C">
                 {step.title}
               </Text>
-              {/* Connector Circle */}
+              {/* Connector Circle (Hidden on small screens) */}
               {index !== steps.length - 1 && (
                 <Box
+                  display={{ base: "none", md: "block" }}
                   w="20px"
                   h="20px"
                   borderRadius="50%"
@@ -92,7 +103,7 @@ const OurModelSection = () => {
               )}
             </Flex>
           ))}
-        </Flex>
+        </Grid>
       </Box>
     </Flex>
   );

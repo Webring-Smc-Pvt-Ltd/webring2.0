@@ -8,7 +8,8 @@ const Footer = () => {
       color="white"
       py={10}
       px={{ base: 6, md: 20 }}
-      w="1923px"
+      maxW="1920px"
+      w="100%"
       h="812px"
     >
       {/* Main Footer Content */}

@@ -5,6 +5,9 @@ const projects = [
   { title: "App Development", image: "/app.png" },
   { title: "Web Development", image: "/web.png" },
   { title: "Social Media Marketing", image: "/social.png" },
+  { title: "Graphic Designing", image: "/seo.png" },
+  { title: "Game Development", image: "/uiux.png" },
+  { title: "Content Writing", image: "/ecommerce.png" },
 ];
 
 const ProjectShowcase = () => {
@@ -14,10 +17,10 @@ const ProjectShowcase = () => {
         
         {/* Left Text Section */}
         <VStack align="flex-start" spacing="20px" w={{ base: "100%", lg: "429px" }} flexShrink={0}>
-          <Text fontSize="16px" fontWeight="700" letterSpacing="40%" color="#FED904">
+          <Text fontSize="16px" fontWeight="700" letterSpacing="10px" color="#FED904">
             PROJECTS
           </Text>
-          <Text fontSize={{ base: "40px", lg: "60px" }} fontWeight="900" lineHeight="72px" color="#26241C">
+          <Text fontSize={{ base: "35px", lg: "55px" }} fontWeight="800" lineHeight="85px" color="#26241C">
             Showcase of our recognized work
           </Text>
           <Text fontSize="20px" fontWeight="400" lineHeight="28px" color="#4F4B3B" pt={10}>
@@ -35,7 +38,7 @@ const ProjectShowcase = () => {
             ].map((item, index) => (
               <HStack key={index}>
                 <FaCheckCircle color="#FED904"/>
-                <Text fontSize="18px" fontWeight="500" color="#26241C">
+                <Text fontSize="18px" fontWeight="400" color="#4F4B3B">
                   {item}
                 </Text>
               </HStack>
@@ -44,7 +47,7 @@ const ProjectShowcase = () => {
         </VStack>
 
         {/* Slider Section */}
-        <Box flex="1" overflowX="auto" py="10px">
+        <Box flex="1" overflowX="auto" py="10px" ml={200}>
           <HStack spacing="20px" minW="fit-content">
             {projects.map((project, index) => (
               <Box
@@ -52,12 +55,12 @@ const ProjectShowcase = () => {
                 w="346px"
                 h="595px"
                 bg="#000"
-                borderRadius="15px"
+                borderRadius="10px"
                 position="relative"
                 flexShrink="0"
               >
                 <Text
-                  fontSize="44px"
+                  fontSize="38px"
                   fontWeight="500"
                   color="#FFFFFF"
                   position="absolute"
