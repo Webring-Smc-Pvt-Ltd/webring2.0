@@ -5,8 +5,8 @@ const projects = [
   { title: "App Development", image: "/app.png" },
   { title: "Web Development", image: "/web.png" },
   { title: "Social Media Marketing", image: "/social.png" },
-  { title: "Graphic Designing", image: "/seo.png" },
-  { title: "Game Development", image: "/uiux.png" },
+  { title: "Graphic Designing", image: "/graphic-designing.png" },
+  { title: "Game Development", image: "/game-development.png" },
   { title: "Content Writing", image: "/ecommerce.png" },
 ];
 
@@ -17,7 +17,7 @@ const ProjectShowcase = () => {
         
         {/* Left Text Section */}
         <VStack align="flex-start" spacing="20px" w={{ base: "100%", lg: "429px" }} flexShrink={0}>
-          <Text fontSize="16px" fontWeight="700" letterSpacing="10px" color="#FED904">
+          <Text fontSize="16px" fontWeight="700" letterSpacing="0.5rem" color="#FED904">
             PROJECTS
           </Text>
           <Text fontSize={{ base: "35px", lg: "55px" }} fontWeight="800" lineHeight="85px" color="#26241C">

@@ -12,10 +12,11 @@ const CustomITSection = () => {
       py={{ base: "30px", xl: "50px" }}
       flexDirection={{ base: "column", md: "row" }}
       alignItems="center"
+      justifyContent="space-evenly"
     >
       {/* Left Text Box */}
       <Box w="100%" maxW="698px">
-        <Text fontWeight="700" fontSize="16px" letterSpacing="40%" color="#26241C">
+        <Text fontWeight="700" fontSize="16px" letterSpacing="0.5rem" color="#26241C">
           WHO WE ARE
         </Text>
         <Text
@@ -44,6 +45,7 @@ const CustomITSection = () => {
         h="auto"
         borderRadius="12px"
         objectFit="cover"
+        // ml={130}
       />
     </Flex>
   );

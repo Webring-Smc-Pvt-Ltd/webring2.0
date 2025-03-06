@@ -1,59 +1,50 @@
-import { Box, Text, VStack, HStack, Image, Button, IconButton } from "@chakra-ui/react";
-
+import { Box, Text, VStack, HStack, Image, Button } from "@chakra-ui/react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
-// import { ArrowLeftIcon } from "@chakra-ui/icons";
-  
 
 const testimonials = [
   {
+    text: "Webring provides the best services for web development. Would love to work with you on additional projects.",
+    subtext: "Webring’s Premier Web Development Services are Here to Help You Unlock Web Excellence. Together, let's work on more projects!",
     name: "Daniyal Sultan",
     position: "Founder & CEO",
-    image: "/CEOdp.png",
-    text: "Webring provides the best services for web development. Would love to work with you on additional projects.",
-    description: "Webring’s Premier Web Development Services are Here to Help You Unlock Web Excellence. Together, let's work on more projects!"
+    image: "/CEOdp.png"
   },
   {
-    name: "Ayesha Khan",
+    text: "Advancing Digital Innovation: The Strategic Vision of Your Web Development Firm with Our CTO",
+    subtext: "Advancing Your Digital Path: Investigate Cutting-Edge Web Solutions with Our CTO's Strategic Perspective at Your Web Development Company",
+    name: "Adil Waqar",
     position: "CTO",
-    image: "/awab.png",
-    text: "Exceptional attention to detail and professionalism in web solutions. Highly recommended!",
-    description: "Their expertise in web development is truly remarkable. We are excited to collaborate further."
+    image: "/adilll.png"
   },
   {
-    name: "Ali Raza",
+    text: "Managing Projects for Success as Your Web Development Project Manager: Navigating Digital Excellence",
+    subtext: "Guiding Web Development Success: Taking Charge of Projects and Getting Them Done Right as Your Committed Project Manager",
+    name: "Muhammad Awab",
     position: "Project Manager",
-    image: "/adil.png",
-    text: "Great experience working with Webring. Their dedication to quality is outstanding.",
-    description: "The team’s commitment and skillset are top-notch. Looking forward to future projects!"
+    image: "/awab2.png"
   }
 ];
 
 const TestimonialSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
     <Box maxW="1923px" mx="auto" py="50px" px={{ base: "20px", lg: "175px" }}>
       <HStack spacing={10} justify="center">
         {/* Left Arrow */}
-        {/* <IconButton
-          icon={<ArrowLeftIcon />}
-          aria-label="Previous"
-          onClick={prevSlide}
-          size="lg"
-          bg="#FED904"
-          borderRadius="full"
-        /> */}
- 
- 
-
+        <Box w="38px" h="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={prevSlide}>
+          <FontAwesomeIcon icon={faArrowLeft} color="#000" />
+        </Box>
 
         {/* Slider Container */}
         <Box w={{ base: "100%", lg: "1570px" }} h="571px" display="flex" justifyContent="center">
@@ -83,7 +74,7 @@ const TestimonialSlider = () => {
 
             {/* Heading */}
             <Text
-              fontSize={{ base: "30px", lg: "40px" }}
+              fontSize={{ base: "30px", lg: "44px" }}
               fontWeight="500"
               lineHeight="48px"
               letterSpacing="-2px"
@@ -92,45 +83,39 @@ const TestimonialSlider = () => {
               left="173px"
               w="936px"
             >
-              {testimonials[currentIndex].text}
+              {testimonials[index].text}
             </Text>
 
             {/* Simple Text */}
             <Text
-              fontSize={{ base: "18px", lg: "25px" }}
+              fontSize={{ base: "18px", lg: "23.63px" }}
               fontWeight="400"
               lineHeight="40px"
               position="absolute"
-              top="280px"
+              top="320px"
               left="173px"
               w="967px"
             >
-              {testimonials[currentIndex].description}
+              {testimonials[index].subtext}
             </Text>
 
             {/* Profile Section */}
-            <HStack position="absolute" top="405px" left="175px" align="center">
-              <Box w="90px" h="90px" borderRadius="full" overflow="hidden">
-                <Image src={testimonials[currentIndex].image} alt="Profile" objectFit="cover" w="full" h="full" />
+            <HStack position="absolute" top="423px" left="277px" spacing={4} align="center">
+              <Box w="108px" h="108px" borderRadius="full" overflow="hidden">
+                <Image src={testimonials[index].image} alt="Profile" objectFit="cover" w="full" h="full" />
               </Box>
-              <VStack color="#F8F8F6" ml={5} gap={0} align="flex-start">
-                <Text fontSize="18px" fontWeight="500">{testimonials[currentIndex].name}</Text>
-                <Text fontSize="16px" fontWeight="400">{testimonials[currentIndex].position}</Text>
+              <VStack align="flex-start" spacing={1}>
+                <Text fontSize="18px" fontWeight="500">{testimonials[index].name}</Text>
+                <Text fontSize="16px" fontWeight="400">{testimonials[index].position}</Text>
               </VStack>
             </HStack>
           </Box>
         </Box>
 
         {/* Right Arrow */}
-        {/* <IconButton
-          icon={<FaArrowRight />}
-          aria-label="Next"
-          onClick={nextSlide}
-          size="lg"
-          bg="#FED904"
-          borderRadius="full"
-        /> */}
-        
+        <Box w="38px" h="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={nextSlide}>
+          <FontAwesomeIcon icon={faArrowRight} color="#000" />
+        </Box>
       </HStack>
     </Box>
   );

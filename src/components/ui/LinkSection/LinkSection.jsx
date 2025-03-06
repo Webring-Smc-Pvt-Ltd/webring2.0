@@ -2,14 +2,15 @@ import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { useRef } from "react";
 
 const techLogos = [
+  { name: "Javascript", src: "/javascript.png" },
+  { name: "WordPress", src: "/wordpress.png" },
   { name: "Flutter", src: "/flutter.png" },
   { name: "Shopify", src: "/shopify.png" },
   { name: "Android", src: "/android.png" },
   { name: "Amazon", src: "/amazon.png" },
   { name: "React", src: "/react.png" },
-  { name: "Node.js", src: "/flutter.png" },
-  { name: "Python", src: "/shopify.png" },
-  { name: "Docker", src: "/android.png" }
+  { name: "Mongo DB", src: "/mongodb.png" },
+  { name: "Laravel", src: "/laravel.png" }
 ];
 
 const TechLogosSection = () => {
@@ -74,10 +75,11 @@ const TechLogosSection = () => {
               <Image
                 src={logo.src}
                 alt={logo.name}
-                w={logo.name === "Amazon" ? "200px" : "134px"}
-                h={logo.name === "Amazon" ? "61px" : "92px"}
+                w={logo.name === "Amazon" ? "220px" : "134px"}
+                h={logo.name === "Amazon" ? "65px" : "92px"}
               />
-              <Text fontSize="18px" fontWeight="500" mt="10px">
+
+              <Text fontSize="18px" fontWeight="500" pt={8}>
                 {logo.name}
               </Text>
             </Box>

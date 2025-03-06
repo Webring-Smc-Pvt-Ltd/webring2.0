@@ -23,7 +23,7 @@ const TeamShowcase = () => {
     >
       {/* Text Section */}
       <VStack w="100%" maxW="1723px" spacing="20px" align="flex-start">
-        <Text fontSize="16px" fontWeight="700" letterSpacing="40%" color="#26241C">
+        <Text fontSize="16px" fontWeight="700" letterSpacing="0.4rem" color="#26241C">
           OUR TEAM
         </Text>
         <Text

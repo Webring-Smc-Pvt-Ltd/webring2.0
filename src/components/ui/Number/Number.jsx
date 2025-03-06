@@ -10,24 +10,30 @@ const StatsSection = () => {
       mx="auto"
     >
       <Flex
-        justify={{ base: "center", md: "space-between" }}
+        justify={{ base: "center", md: "space-evenly" }}
         align="center"
         wrap="wrap"
         gap={{ base: "40px", md: "80px", lg: "134px" }}
       >
         {/* Active Users */}
         <StatBox number="5M+" title="Active Users Worldwide">
+          <Box mt={1}>
           Delivering seamless digital experiences through cutting-edge web and mobile apps.
+          </Box>
         </StatBox>
 
         {/* Rated for Excellence */}
         <StatBox number="4.8" title="Rated for Excellence">
+          <Box mt={1}>
           Trusted by users and clients for delivering high-quality, reliable solutions.
+          </Box>
         </StatBox>
 
         {/* Industries Transformed */}
         <StatBox number="100+" title="Industries Transformed">
-          We’ve left a mark across 100+ sectors with scalable websites, innovative mobile applications and Shopify stores.
+           <Box mt={1}>
+           We’ve left a mark across 100+ sectors with scalable websites, innovative mobile applications and Shopify stores.
+           </Box>
         </StatBox>
       </Flex>
     </Box>

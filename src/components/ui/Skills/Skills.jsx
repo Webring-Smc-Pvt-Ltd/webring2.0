@@ -30,7 +30,7 @@ const ServicesSection = () => {
       <VStack spacing="80px" align="flex-start">
         <HStack flexDirection={{ base: "column", md: "row" }} justify="space-between" w="full">
           <VStack align="flex-start" spacing="10px">
-            <Text fontSize="16px" fontWeight="700" letterSpacing="40%" color="#26241C">
+            <Text fontSize="16px" fontWeight="700" letterSpacing="0.5rem" color="#26241C">
               WHAT WE’RE OFFERING
             </Text>
             <Text fontSize={{ base: "40px", md: "60px" }} fontWeight="900" lineHeight="72px" color="#FED904">
