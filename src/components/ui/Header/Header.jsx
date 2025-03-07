@@ -9,6 +9,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // AI Services dropdown
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown
 
   const navItems = ["Home", "Services", "Industries", "Technologies", "Insights", "Portfolio"];
 
@@ -53,154 +54,83 @@ const Header = () => {
         >
           <HStack spacing="30px">
             {navItems.map((item) => (
-              <Box
-                key={item}
-                px={3}
-                height="100%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                borderTop={activeLink === item ? "3px solid #FED904" : "none"}
-                onClick={() => setActiveLink(item)}
-                cursor="pointer"
-                py={6}
-              >
-                <Link
-                  fontSize="18px"
-                  fontWeight="600"
-                  color={activeLink === item ? "#FED904" : "white"}
-                  _hover={{ color: "#FED904" }}
-                >
-                  {item}
-                </Link>
-              </Box>
-            ))}
-
-            {/* AI Services Dropdown */}
-            <Box
-              position="relative"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <Box
-                px={3}
-                height="100%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                borderTop={activeLink === "AI Services" ? "3px solid #FED904" : "none"}
-                cursor="pointer"
-                py={6}
-              >
-                <Link
-                  fontSize="18px"
-                  fontWeight="600"
-                  color={activeLink === "AI Services" ? "#FED904" : "white"}
-                  _hover={{ color: "#FED904" }}
-                >
-                  AI Services
-                </Link>
-              </Box>
-
-              {/* Dropdown Menu */}
-              {isDropdownOpen && (
+              item === "Services" ? (
                 <Box
-                  position="absolute"
-                  top="100%"
-                  left="0"
-                  bg="black"
-                  w="200px"
-                  borderRadius="5px"
-                  boxShadow="md"
-                  p="10px"
-                  zIndex="1000"
+                  key={item}
+                  position="relative"
+                  onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                  onMouseLeave={() => setIsServicesDropdownOpen(false)}
                 >
-                  <VStack align="start" spacing="10px">
-                    <Link color="white" _hover={{ color: "#FED904" }} href="/Link 1">
-                      Link 1
+                  <Box
+                    px={3}
+                    height="100%"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    borderTop={activeLink === item ? "3px solid #FED904" : "none"}
+                    cursor="pointer"
+                    py={6}
+                  >
+                    <Link
+                      fontSize="18px"
+                      fontWeight="600"
+                      color={activeLink === item ? "#FED904" : "white"}
+                      _hover={{ color: "#FED904" }}
+                    >
+                      {item}
                     </Link>
-                    <Link color="white" _hover={{ color: "#FED904" }} href="/Link 2">
-                    Link 2
-                    </Link>
-                    <Link color="white" _hover={{ color: "#FED904" }} href="/Link 3">
-                    Link 3
-                    </Link>
-                  </VStack>
+                  </Box>
+
+                  {isServicesDropdownOpen && (
+                    <Box
+                      position="absolute"
+                      top="100%"
+                      left="0"
+                      bg="black"
+                      w="200px"
+                      borderRadius="5px"
+                      boxShadow="md"
+                      p="10px"
+                      zIndex="1000"
+                    >
+                      <VStack align="start" spacing="10px">
+                        <Link color="white" _hover={{ color: "#FED904" }} href="/service1">Service 1</Link>
+                        <Link color="white" _hover={{ color: "#FED904" }} href="/service2">Service 2</Link>
+                        <Link color="white" _hover={{ color: "#FED904" }} href="/service3">Service 3</Link>
+                      </VStack>
+                    </Box>
+                  )}
                 </Box>
-              )}
-            </Box>
+              ) : (
+                <Box
+                  key={item}
+                  px={3}
+                  height="100%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  borderTop={activeLink === item ? "3px solid #FED904" : "none"}
+                  onClick={() => setActiveLink(item)}
+                  cursor="pointer"
+                  py={6}
+                >
+                  <Link
+                    fontSize="18px"
+                    fontWeight="600"
+                    color={activeLink === item ? "#FED904" : "white"}
+                    _hover={{ color: "#FED904" }}
+                  >
+                    {item}
+                  </Link>
+                </Box>
+              )
+            ))}
           </HStack>
 
           {/* Get a Quote Button */}
           <CustomButton text="GET A QUOTE" onClick={() => alert("Quote Requested!")} />
         </Flex>
-
-        {/* Mobile Menu Toggle Button */}
-        <IconButton
-          aria-label="Open Menu"
-          icon={isMenuOpen ? <FaTimes /> : <FaBars />}
-          display={{ base: "flex", md: "none" }}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          color="white"
-          fontSize="24px"
-          bg="transparent"
-          _hover={{ bg: "transparent" }}
-        />
       </Flex>
-
-      {/* Mobile Navigation - No Collapse */}
-      {isMenuOpen && (
-        <VStack
-          display={{ base: "flex", md: "none" }}
-          bg="black"
-          position="absolute"
-          top="80px"
-          left="0"
-          w="100%"
-          py="20px"
-          spacing="20px"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item}
-              fontSize="18px"
-              fontWeight="600"
-              color={activeLink === item ? "#FED904" : "white"}
-              _hover={{ color: "#FED904" }}
-              onClick={() => {
-                setActiveLink(item);
-                setIsMenuOpen(false); // Close menu on selection
-              }}
-            >
-              {item}
-            </Link>
-          ))}
-          {/* AI Services for Mobile */}
-          <Box w="100%" textAlign="center">
-            <Link
-              fontSize="18px"
-              fontWeight="600"
-              color="white"
-              _hover={{ color: "#FED904" }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              AI Services
-            </Link>
-            <VStack align="center" spacing="10px" mt="5px">
-              <Link color="white" _hover={{ color: "#FED904" }} href="/Link 1">
-                Link 1
-              </Link>
-              <Link color="white" _hover={{ color: "#FED904" }} href="/Link 2">
-                Link 2
-              </Link>
-              <Link color="white" _hover={{ color: "#FED904" }} href="/Link 3">
-                Link 3
-              </Link>
-            </VStack>
-          </Box>
-          <CustomButton text="GET A QUOTE" onClick={() => alert("Quote Requested!")} />
-        </VStack>
-      )}
     </Box>
   );
 };

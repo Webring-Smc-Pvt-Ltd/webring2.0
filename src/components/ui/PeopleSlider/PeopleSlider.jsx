@@ -21,9 +21,9 @@ const testimonials = [
   {
     text: "Managing Projects for Success as Your Web Development Project Manager: Navigating Digital Excellence",
     subtext: "Guiding Web Development Success: Taking Charge of Projects and Getting Them Done Right as Your Committed Project Manager",
-    name: "Muhammad Awab",
-    position: "Project Manager",
-    image: "/awab2.png"
+    name: "Muhammad Ibrahim",
+    position: "Director",
+    image: "/.png"
   }
 ];
 
@@ -42,7 +42,7 @@ const TestimonialSlider = () => {
     <Box maxW="1923px" mx="auto" py="50px" px={{ base: "20px", lg: "175px" }}>
       <HStack spacing={10} justify="center">
         {/* Left Arrow */}
-        <Box w="38px" h="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={prevSlide}>
+        <Box w="38px" h="38px" minW="38px" minH="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={prevSlide}>
           <FontAwesomeIcon icon={faArrowLeft} color="#000" />
         </Box>
 
@@ -113,7 +113,7 @@ const TestimonialSlider = () => {
         </Box>
 
         {/* Right Arrow */}
-        <Box w="38px" h="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={nextSlide}>
+        <Box w="38px" h="38px" minW="38px" minH="38px" bg="#FED904" borderRadius="full" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={nextSlide}>
           <FontAwesomeIcon icon={faArrowRight} color="#000" />
         </Box>
       </HStack>
