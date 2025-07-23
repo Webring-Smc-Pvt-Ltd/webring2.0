@@ -6,7 +6,7 @@ const HeroBanner2 = () => {
     <Box
       width="100%"
       height="543px"
-      backgroundImage="url('/banner2.png')"
+      backgroundImage="url('/.png')"
       backgroundSize="cover"
       backgroundPosition="center"
       position="relative"
